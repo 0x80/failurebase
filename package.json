@@ -31,7 +31,7 @@
     "build": "tsup && tsc --emitDeclarationOnly",
     "clean": "del-cli dist tsconfig.tsbuildinfo",
     "test": "echo \"No test specified\"",
-    "prepare": "pnpm build"
+    "prepare": "pnpm clean && pnpm build"
   },
   "author": "Thijs Koerselman",
   "license": "MIT",
