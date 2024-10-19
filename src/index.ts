@@ -14,6 +14,12 @@ export function useDocumentDataOnce<T>(
         return;
       }
 
+      console.log("+++ Fetching data for", collectionRef.path, documentId);
+
+      /**
+       * Despite the log above printing the correct path, the following line
+       * claims that collectionRef is not a reference.
+       */
       const ref = doc(collectionRef, documentId);
 
       const snapshot = await getDoc(ref);
