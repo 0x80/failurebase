@@ -15,6 +15,9 @@ importers:
         specifier: '>=16.8.0'
         version: 18.3.1
     devDependencies:
+      '@codecompose/typescript-config':
+        specifier: ^1.2.0
+        version: 1.2.0
       '@testing-library/react-hooks':
         specifier: ^8.0.1
         version: 8.0.1(@types/react@18.3.11)(react@18.3.1)
@@ -48,6 +51,9 @@ packages:
   '@babel/runtime@7.25.7':
     resolution: {integrity: sha512-FjoyLe754PMiYsFaN5C94ttGiOmBNYTf6pLr4xXHAT5uctHb092PBszndLDR5XA/jghQvn4n7JMHl7dmTgbm9w==}
     engines: {node: '>=6.9.0'}
+
+  '@codecompose/typescript-config@1.2.0':
+    resolution: {integrity: sha512-QsAHWxNnXXm7UdkEf25N1OBpPaH0bGz0NZhMKBnxjFTVBctxEST+VcWjlI0AVpI/bVIoJgMtLw1hzz8n7huXCA==}
 
   '@esbuild/aix-ppc64@0.23.1':
     resolution: {integrity: sha512-6VhYk1diRqrhBAqpJEdjASR/+WVRtfjpqKuNw11cLiaWpAT/Uu+nokB+UJnevzy/P9C/ty6AOe0dwueMrGh/iQ==}
@@ -1657,6 +1663,8 @@ snapshots:
   '@babel/runtime@7.25.7':
     dependencies:
       regenerator-runtime: 0.14.1
+
+  '@codecompose/typescript-config@1.2.0': {}
 
   '@esbuild/aix-ppc64@0.23.1':
     optional: true

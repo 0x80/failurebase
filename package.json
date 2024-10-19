@@ -13,11 +13,11 @@
     "typescript"
   ],
   "type": "module",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "require": "./dist/index.cjs",
-      "import": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "import": "./dist/index.js"
     }
   },
   "files": [
@@ -36,6 +36,7 @@
   "author": "Thijs Koerselman",
   "license": "MIT",
   "devDependencies": {
+    "@codecompose/typescript-config": "^1.2.0",
     "@testing-library/react-hooks": "^8.0.1",
     "@types/react": "^18.3.11",
     "eslint": "^8.57.1",
