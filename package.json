@@ -29,6 +29,7 @@
     "lint": "eslint .",
     "type-check": "tsc --noEmit",
     "build": "tsup && tsc --emitDeclarationOnly",
+    "clean": "del-cli dist tsconfig.tsbuildinfo",
     "test": "echo \"No test specified\"",
     "prepare": "pnpm build"
   },
@@ -38,6 +39,7 @@
     "@codecompose/typescript-config": "^1.2.0",
     "@testing-library/react-hooks": "^8.0.1",
     "@types/react": "^18.3.11",
+    "del-cli": "^6.0.0",
     "eslint": "^8.57.1",
     "eslint-config-0x80": "^0.0.0",
     "eslint-plugin-require-extensions": "^0.1.3",
