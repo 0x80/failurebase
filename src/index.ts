@@ -2,21 +2,58 @@ import type { CollectionReference } from "firebase/firestore";
 import { doc, getDoc } from "firebase/firestore";
 import { useEffect, useState } from "react";
 
-export function useDocumentData<T>(
+export function useDocumentDataOnce<T>(
   collectionRef: CollectionReference,
-  documentId: string
+  documentId?: string
 ) {
-  const ref = doc(collectionRef, documentId);
-
   const [data, setData] = useState<T>();
 
   useEffect(() => {
-    getDoc(ref)
-      .then((snapshot) => {
+    const fetchData = async () => {
+      if (!documentId) {
+        return;
+      }
+
+      const ref = doc(collectionRef, documentId);
+
+      const snapshot = await getDoc(ref);
+      if (snapshot.exists()) {
         setData(snapshot.data() as T);
-      })
-      .catch((error) => console.error(error));
-  });
+      } else {
+        throw new Error(`No document at ${collectionRef.path}/${documentId}`);
+      }
+    };
+
+    fetchData().catch(console.error);
+  }, [collectionRef, documentId]); // Add ref to the dependency array
+
+  return data;
+}
+
+export function useDocumentDataOnceMaybe<T>(
+  collectionRef: CollectionReference,
+  documentId?: string
+) {
+  const [data, setData] = useState<T>();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      if (!documentId) {
+        return;
+      }
+
+      const ref = doc(collectionRef, documentId);
+
+      const snapshot = await getDoc(ref);
+      if (snapshot.exists()) {
+        setData(snapshot.data() as T);
+      } else {
+        setData(undefined);
+      }
+    };
+
+    fetchData().catch(console.error);
+  }, [collectionRef, documentId]); // Add ref to the dependency array
 
   return data;
 }

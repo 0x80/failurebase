@@ -16,7 +16,6 @@
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "require": "./dist/index.cjs",
       "import": "./dist/index.js"
     }
   },
@@ -29,8 +28,7 @@
   "scripts": {
     "lint": "eslint .",
     "type-check": "tsc --noEmit",
-    "build": "tsup",
-    "Xbuild": "tsc",
+    "build": "tsup && tsc --emitDeclarationOnly",
     "test": "echo \"No test specified\""
   },
   "author": "Thijs Koerselman",
