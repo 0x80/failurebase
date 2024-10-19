@@ -1,6 +1,5 @@
 module.exports = {
-  extends: ["0x80", "plugin:require-extensions/recommended"],
-  plugins: ["require-extensions"],
+  extends: ["0x80"],
   parserOptions: {
     tsconfigRootDir: __dirname,
   },
