@@ -1,5 +1,4 @@
-import type { CollectionReference } from "firebase/firestore";
-import { doc, getDoc } from "firebase/firestore";
+import { CollectionReference, doc, getDoc } from "firebase/firestore";
 import { useEffect, useState } from "react";
 
 export function useDocumentDataOnce<T>(
@@ -14,7 +13,10 @@ export function useDocumentDataOnce<T>(
         return;
       }
 
-      console.log("+++ Fetching data for", collectionRef.path, documentId);
+      console.log(
+        "+++ collectionRef instanceof CollectionReference?",
+        collectionRef instanceof CollectionReference
+      );
 
       /**
        * Despite the log above printing the correct path, the following line
